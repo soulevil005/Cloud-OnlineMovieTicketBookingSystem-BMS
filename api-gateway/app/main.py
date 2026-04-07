@@ -3,7 +3,6 @@ import requests
 
 app = FastAPI()
 
-# Service URLs
 USER_SERVICE = "https://user-service-pcyb.onrender.com"
 MOVIE_SERVICE = "https://movie-service-63iw.onrender.com"
 BOOKING_SERVICE = "https://booking-service-ulkk.onrender.com"
@@ -11,6 +10,7 @@ SEAT_SERVICE = "http://127.0.0.1:8003"
 PAYMENT_SERVICE = "http://127.0.0.1:8004"
 THEATRE_SERVICE = "http://127.0.0.1:8005"
 NOTIFICATION_SERVICE = "http://127.0.0.1:8006"
+
 
 
 @app.get("/")
@@ -31,16 +31,16 @@ def login(data: dict):
     return response.json()
 
 
-# ---------- MOVIES ----------
-@app.get("/movies")
-def get_movies():
-    response = requests.get(f"{MOVIE_SERVICE}/movies")
-    return response.json()
-
-
+# ---------- MOVIE ----------
 @app.post("/add-movie")
 def add_movie(data: dict):
     response = requests.post(f"{MOVIE_SERVICE}/add-movie", json=data)
+    return response.json()
+
+
+@app.get("/movies")
+def get_movies():
+    response = requests.get(f"{MOVIE_SERVICE}/movies")
     return response.json()
 
 
