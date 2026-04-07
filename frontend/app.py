@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-BASE_URL = "https://api-gateway-g5wc.onrender.com"  
+BASE_URL = "https://api-gateway-g5wc.onrender.com"
 
 st.set_page_config(page_title="BMS App", layout="wide")
 
@@ -29,7 +29,10 @@ if menu == "Register":
             "email": email,
             "password": password
         })
-        st.write(res.json())
+        try:
+            st.write(res.json())
+        except:
+            st.write(res.text)
 
 
 # ---------- ADD MOVIE ----------
@@ -46,7 +49,10 @@ elif menu == "Add Movie":
             "genre": genre,
             "duration": int(duration)
         })
-        st.write(res.json())
+        try:
+            st.write(res.json())
+        except:
+            st.write(res.text)
 
 
 # ---------- VIEW MOVIES ----------
@@ -55,7 +61,10 @@ elif menu == "View Movies":
 
     if st.button("Load"):
         res = requests.get(f"{BASE_URL}/movies")
-        st.write(res.json())
+        try:
+            st.write(res.json())
+        except:
+            st.write(res.text)
 
 
 # ---------- BOOK ----------
@@ -64,7 +73,7 @@ elif menu == "Book Ticket":
 
     email = st.text_input("Email")
     movie = st.text_input("Movie Name")
-    seats = st.text_input("Seats")
+    seats = st.text_input("Seats (A1,A2)")
 
     if st.button("Book"):
         res = requests.post(f"{BASE_URL}/book", json={
@@ -72,7 +81,10 @@ elif menu == "Book Ticket":
             "movie_name": movie,
             "seats": seats.split(",")
         })
-        st.write(res.json())
+        try:
+            st.write(res.json())
+        except:
+            st.write(res.text)
 
 
 # ---------- BOOKINGS ----------
@@ -81,4 +93,7 @@ elif menu == "View Bookings":
 
     if st.button("Load"):
         res = requests.get(f"{BASE_URL}/bookings")
-        st.write(res.json())
+        try:
+            st.write(res.json())
+        except:
+            st.write(res.text)
