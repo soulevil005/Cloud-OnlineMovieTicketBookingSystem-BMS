@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from app.models import User
-from database import users_collection
+from app.database import users_collection
 
 router = APIRouter()
 
