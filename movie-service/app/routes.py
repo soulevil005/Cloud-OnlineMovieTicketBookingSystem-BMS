@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.models import Movie
-from app.database import movies_collection
+from models import Movie
+from database import movies_collection
 
 router = APIRouter()
 
