@@ -17,47 +17,45 @@ NOTIFICATION_SERVICE = "http://127.0.0.1:8006"
 def root():
     return {"message": "API Gateway Running"}
 
+
 # ---------- USER ----------
 @app.post("/register")
 def register(data: dict):
-    try:
-        response = requests.post(f"{USER_SERVICE}/register", json=data)
-        return {
-            "status_code": response.status_code,
-            "response": response.text
-        }
-    except Exception as e:
-        return {"error": str(e)}
+    response = requests.post(f"{USER_SERVICE}/register", json=data)
+    return response.json()
+
+
 @app.post("/login")
 def login(data: dict):
-    return requests.post(f"{USER_SERVICE}/login", json=data).json()
+    response = requests.post(f"{USER_SERVICE}/login", json=data)
+    return response.json()
+
 
 # ---------- MOVIES ----------
 @app.get("/movies")
 def get_movies():
-    return requests.get(f"{MOVIE_SERVICE}/movies").json()
+    response = requests.get(f"{MOVIE_SERVICE}/movies")
+    return response.json()
+
 
 @app.post("/add-movie")
 def add_movie(data: dict):
-    return requests.post(f"{MOVIE_SERVICE}/add-movie", json=data).json()
+    response = requests.post(f"{MOVIE_SERVICE}/add-movie", json=data)
+    return response.json()
 
-# THEATRE
-@app.post("/add-theatre")
-def add_theatre(data: dict):
-    return requests.post(f"{THEATRE_SERVICE}/add-theatre", json=data).json()
-
-@app.get("/theatres")
-def get_theatres():
-    return requests.get(f"{THEATRE_SERVICE}/theatres").json()
 
 # ---------- BOOKING ----------
 @app.post("/book")
 def book(data: dict):
-    return requests.post(f"{BOOKING_SERVICE}/book", json=data).json()
+    response = requests.post(f"{BOOKING_SERVICE}/book", json=data)
+    return response.json()
+
 
 @app.get("/bookings")
 def bookings():
-    return requests.get(f"{BOOKING_SERVICE}/bookings").json()
+    response = requests.get(f"{BOOKING_SERVICE}/bookings")
+    return response.json()
+
 
 # ---------- SEAT ----------
 @app.post("/lock-seat")
