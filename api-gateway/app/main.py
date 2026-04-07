@@ -3,7 +3,7 @@ import requests
 
 app = FastAPI()
 
-USER_SERVICE = "https://user-service-pcyb.onrender.com"
+USER_SERVICE = "https://user-service-new-wzpd.onrender.com"
 MOVIE_SERVICE = "https://movie-service-63iw.onrender.com"
 BOOKING_SERVICE = "https://booking-service-ulkk.onrender.com"
 SEAT_SERVICE = "http://127.0.0.1:8003"
