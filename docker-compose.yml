@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "8000:8000"
+
+  movie-service:
+    build: ./movie-service
+    ports:
+      - "8001:8001"
+
+  booking-service:
+    build: ./booking-service
+    ports:
+      - "8002:8002"
+
+  seat-service:
+    build: ./seat-service
+    ports:
+      - "8003:8003"
+
+  payment-service:
+    build: ./payment-service
+    ports:
+      - "8004:8004"
+
+  theatre-service:
+    build: ./theatre-service
+    ports:
+      - "8005:8005"
+
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "8006:8006"
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "9000:9000"
