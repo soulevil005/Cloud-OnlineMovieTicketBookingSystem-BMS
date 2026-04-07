@@ -21,15 +21,15 @@ def root():
 # ---------- USER ----------
 @app.post("/register")
 def register(data: dict):
-    response = requests.post(f"{USER_SERVICE}/register", json=data)
-    return response.json()
-
-
-@app.post("/login")
-def login(data: dict):
-    response = requests.post(f"{USER_SERVICE}/login", json=data)
-    return response.json()
-
+    try:
+        response = requests.post(f"{USER_SERVICE}/register", json=data)
+        return {
+            "gateway_status": "ok",
+            "service_status": response.status_code,
+            "service_response": response.text
+        }
+    except Exception as e:
+        return {"error": str(e)}
 
 # ---------- MOVIE ----------
 @app.post("/add-movie")
