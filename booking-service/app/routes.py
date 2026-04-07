@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.models import Booking
-from app.database import booking_collection
+from database import booking_collection
+from models import Booking
 
 router = APIRouter()
 
