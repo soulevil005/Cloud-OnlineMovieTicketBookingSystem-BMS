@@ -44,7 +44,10 @@ def get_movies():
 @app.post("/book")
 def book(data: dict):
     res = requests.post(f"{BOOKING_SERVICE}/book", json=data)
-    return res.json()
+    try:
+        return res.json()
+    except:
+        return {"message": res.text}
 
 
 @app.get("/bookings")
