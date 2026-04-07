@@ -4,9 +4,9 @@ import requests
 app = FastAPI()
 
 # Service URLs
-USER_SERVICE = "http://127.0.0.1:8000"
-MOVIE_SERVICE = "http://127.0.0.1:8001"
-BOOKING_SERVICE = "http://127.0.0.1:8002"
+USER_SERVICE = "https://user-service-pcyb.onrender.com/"
+MOVIE_SERVICE = "https://movie-service-63iw.onrender.com"
+BOOKING_SERVICE = "https://booking-service-ulkk.onrender.com"
 SEAT_SERVICE = "http://127.0.0.1:8003"
 PAYMENT_SERVICE = "http://127.0.0.1:8004"
 THEATRE_SERVICE = "http://127.0.0.1:8005"
